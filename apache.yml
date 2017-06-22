@@ -1,0 +1,14 @@
+- hosts: localhost
+  connection: local
+  tasks:
+  - name: install apache2
+    apt: name=apache2 update_cache=yes state=latest
+  - name: copy index.html file  
+    copy:
+     src: /tmp/index.html
+     dest: /var/www/html
+     owner: www-data
+     group: www-data
+     mode: 0644
+  - name: start apache
+    command: /etc/init.d/apache2 start

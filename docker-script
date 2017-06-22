@@ -1,0 +1,8 @@
+#!/bin/bash
+
+image_name="example2-docker:dockerfile"
+
+docker build -t $image_name "."
+docker network create --driver bridge apache_nw
+docker run --network=apache_nw -p 8080:80 -itd --name=apache $image_name
+
