@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN pip install --upgrade pip 
 
-RUN git clone https://github.com/geopolitis/example-dataf /tmp
+RUN git clone https://github.com/geopolitis/dataff /tmp
 
 RUN ansible-playbook /tmp/apache.yml
 EXPOSE 80
